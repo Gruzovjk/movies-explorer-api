@@ -14,7 +14,7 @@ const { requestsLogger, errorsLogger } = require('./middlewares/logger');
 const app = express();
 app.use(
   cors({
-    origin: ['https://filimonov.mesto.nomoredomains.rocks'],
+    origin: ['https://gruzovjk.movies.nomoredomains.rocks'],
     credentials: true,
     maxAge: 30,
   }),
