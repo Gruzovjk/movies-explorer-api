@@ -7,10 +7,10 @@ const {
 } = require('../controllers/movies');
 
 // дописать валидацию всех полей при создании
-const { validateId } = require('../middlewares/validator');
+const { validateId, validateCreateMovie } = require('../middlewares/validator');
 
 router.get('/', getSavedMovies);
-router.post('/', createMovie);
+router.post('/', validateCreateMovie, createMovie);
 router.delete('/:id', validateId, removeMovieById);
 
 module.exports = router;
