@@ -28,7 +28,7 @@ logs
 npm-debug.log*
 
 # Dependency directory
-node_modules 
+node_modules
 
 # Optional npm cache directory
 .npm
@@ -40,4 +40,7 @@ node_modules
 
 #Env
 .env
+
+#Tests
+.github
 
