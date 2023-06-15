@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const errorsHandler = require('./middlewares/errorsHandler');
-const limiter = require('./utils/limiter');
+const requestsLimiter = require('./utils/limiter');
 
 const { requestsLogger, errorsLogger } = require('./middlewares/logger');
 
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(helmet());
-app.use(limiter);
+app.use(requestsLimiter);
 
 app.use(require('./routes'));
 

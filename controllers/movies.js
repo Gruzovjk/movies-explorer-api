@@ -10,7 +10,7 @@ const {
 
 exports.getSavedMovies = (req, res, next) => {
   const userId = req.user._id;
-  Movie.find({ user: userId })
+  Movie.find({ owner: userId })
     .then((movies) => {
       if (movies.length === 0) {
         const error = new NotFoundError('Нет сохраненных фильмов');
@@ -35,7 +35,7 @@ module.exports.createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,
@@ -48,7 +48,7 @@ module.exports.createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,
@@ -68,7 +68,7 @@ module.exports.createMovie = (req, res, next) => {
 };
 
 module.exports.removeMovieById = (req, res, next) => {
-  const movieId = req.params._id;
+  const movieId = req.params.id;
   Movie.findById(movieId)
     .then((movie) => {
       if (!movie) {
