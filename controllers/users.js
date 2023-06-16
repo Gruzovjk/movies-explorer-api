@@ -115,6 +115,12 @@ module.exports.updateProfile = (req, res, next) => {
         );
         return next(error);
       }
+      if (err.code === 11000) {
+        const error = new ConflictingRequestError(
+          'Пользователь с таким e-mail уже существует',
+        );
+        return next(error);
+      }
       return next(err);
     });
 };

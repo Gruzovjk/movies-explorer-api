@@ -12,11 +12,7 @@ exports.getSavedMovies = (req, res, next) => {
   const userId = req.user._id;
   Movie.find({ owner: userId })
     .then((movies) => {
-      if (movies.length === 0) {
-        const error = new NotFoundError('Нет сохраненных фильмов');
-        return next(error);
-      }
-      return res.json(movies);
+      res.json(movies);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
