@@ -6,7 +6,6 @@ const {
   removeMovieById,
 } = require('../controllers/movies');
 
-// дописать валидацию всех полей при создании
 const { validateId, validateCreateMovie } = require('../middlewares/validator');
 
 router.get('/', getSavedMovies);
